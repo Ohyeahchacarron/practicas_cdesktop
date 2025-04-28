@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Columns;
+using System.Drawing;
 
 namespace WFA_generador_codigo
 {
@@ -31,13 +32,6 @@ namespace WFA_generador_codigo
                 SqlDataAdapter adapter = new SqlDataAdapter("select alumnos.*, cast(0 as int) as modificacion from db_accessadmin.alumnos", conexion);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-                
-                dt.Columns.Add("modificacion_texto", typeof(string));
-                
-                foreach (DataRow row in dt.Rows)
-                {
-                    row["modificacion_texto"] = ObtenerTextoModificacion(Convert.ToInt32(row["modificacion"]));
-                }
 
                 tabla_alumnos.DataSource = dt;
                 ConfigurarColumnas();
@@ -52,17 +46,6 @@ namespace WFA_generador_codigo
             }
         }
 
-        private string ObtenerTextoModificacion(int valor)
-        {
-            switch (valor)
-            {
-                case 0: return "ACTIVO";
-                case 1: return "EDITAR";
-                case 2: return "ELIMINAR";
-                default: return "ACTIVO";
-            }
-        }
-
         private void ConfigurarColumnas()
         {
             GridView view = tabla_alumnos.MainView as GridView;
@@ -71,18 +54,12 @@ namespace WFA_generador_codigo
                 view.OptionsBehavior.Editable = true;
                 view.OptionsView.NewItemRowPosition = NewItemRowPosition.Bottom;
                 view.InitNewRow += View_InitNewRow;
-                
-                GridColumn colModificacionOriginal = view.Columns["modificacion"];
-                if (colModificacionOriginal != null)
-                {
-                    colModificacionOriginal.Visible = false;
-                }
 
-                GridColumn colModificacionTexto = view.Columns["modificacion_texto"];
-                if (colModificacionTexto != null)
+                GridColumn colModificacion = view.Columns["modificacion"];
+                if (colModificacion != null)
                 {
-                    colModificacionTexto.Caption = "Modificación";
-                    colModificacionTexto.OptionsColumn.AllowEdit = false;
+                    colModificacion.Caption = "Modificación";
+                    colModificacion.OptionsColumn.AllowEdit = false;
                 }
 
                 GridColumn colId = view.Columns["id"];
@@ -106,11 +83,10 @@ namespace WFA_generador_codigo
                     colGrado.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
                     colGrado.OptionsColumn.AllowEdit = true;
                 }
-                
+
                 view.BestFitColumns();
             }
         }
-
         private void View_InitNewRow(object sender, InitNewRowEventArgs e)
         {
             GridView view = sender as GridView;
@@ -121,7 +97,6 @@ namespace WFA_generador_codigo
                 {
                     row["id"] = 0;
                     row["modificacion"] = 0;
-                    row["modificacion_texto"] = "ACTIVO";
                     row["grado"] = 0;
                     row["nombre"] = "";
                 }
@@ -241,14 +216,13 @@ namespace WFA_generador_codigo
 
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            if (e.Column.FieldName != "modificacion_texto" && e.Column.FieldName != "modificacion")
+            if (e.Column.FieldName != "modificacion")
             {
                 GridView view = sender as GridView;
                 DataRow row = view.GetDataRow(e.RowHandle);
-                if (row != null)
+                if (row != null && row["id"] != DBNull.Value && Convert.ToInt32(row["id"]) != 0)
                 {
-                    row["modificacion"] = 1; 
-                    row["modificacion_texto"] = "EDITAR"; 
+                    row["modificacion"] = 1;
                 }
             }
         }
@@ -263,10 +237,40 @@ namespace WFA_generador_codigo
                 if (row != null)
                 {
                     row["modificacion"] = 2;
-                    row["modificacion_texto"] = "ELIMINAR";
                     MessageBox.Show("Registro marcado para eliminación.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
+
+        private void gridView1_CustomDrawCell(object sender, DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventArgs e)
+        {
+            GridView view = sender as GridView;
+            if (view != null && e.RowHandle >= 0)
+            {
+                DataRow row = view.GetDataRow(e.RowHandle);
+                if (row != null)
+                {
+                    if (row["id"] == DBNull.Value || Convert.ToInt32(row["id"]) == 0)
+                    {
+                        e.Appearance.BackColor = Color.LightGreen;
+                    }
+                    else if (row["modificacion"] != DBNull.Value)
+                    {
+                        int modificacion = Convert.ToInt32(row["modificacion"]);
+
+                        switch (modificacion)
+                        {
+                            case 1:
+                                e.Appearance.BackColor = Color.Yellow;
+                                break;
+                            case 2:
+                                e.Appearance.BackColor = Color.Red;
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }

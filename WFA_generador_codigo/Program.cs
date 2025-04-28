@@ -14,9 +14,9 @@ namespace WFA_generador_codigo
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
+            //Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Formulario_alumnos());
+            Application.Run(new Menu());
         }
     }
 }

@@ -14,7 +14,7 @@ namespace WFA_generador_codigo
 {
     public partial class simpleButton1 : Form
     {
-        String variable = "saludos";
+      
         public simpleButton1()
         {
             InitializeComponent();

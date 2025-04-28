@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-MX">
+  <Title Text="Tablero de control" />
+  <DataSources>
+    <SqlDataSource ComponentName="dashboardSqlDataSource1">
+      <Name>Origen de datos SQL 1</Name>
+      <Connection Name="localhost_programador02_Connection" ProviderKey="MSSqlServer">
+        <Parameters>
+          <Parameter Name="server" Value="192.168.22.146" />
+          <Parameter Name="database" Value="programador02" />
+          <Parameter Name="useIntegratedSecurity" Value="False" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+        </Parameters>
+      </Connection>
+      <Query Type="StoredProcQuery" Name="db_accessadmin_usp_reporte_estilos">
+        <ProcName>db_accessadmin.usp_reporte_estilos</ProcName>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="db_accessadmin_usp_reporte_estilos">
+            <Field Name="estilo" Type="String" />
+            <Field Name="pares" Type="Int32" />
+            <Field Name="productos" Type="String" />
+            <Field Name="consumo_par" Type="Decimal" />
+            <Field Name="total_consumo" Type="Decimal" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Pie ComponentName="pieDashboardItem1" Name="Tartas 1" DataSource="dashboardSqlDataSource1" DataMember="db_accessadmin_usp_reporte_estilos" PieType="Donut">
+      <InteractivityOptions MasterFilterMode="Single" IsDrillDownEnabled="true" />
+      <DataItems>
+        <Dimension DataMember="estilo" SortOrder="Descending" DefaultId="DataItem0" />
+        <Measure DataMember="total_consumo" DefaultId="DataItem1" />
+        <Dimension DataMember="productos" DefaultId="DataItem2" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+        <Argument DefaultId="DataItem2" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem1" />
+      </Values>
+    </Pie>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutItem DashboardItem="pieDashboardItem1" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

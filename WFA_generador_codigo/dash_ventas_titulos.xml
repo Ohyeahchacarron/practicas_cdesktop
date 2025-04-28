@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="es-MX">
+  <Title Text="Tablero de control" />
+  <DataSources>
+    <SqlDataSource ComponentName="dashboardSqlDataSource1">
+      <Name>Origen de datos SQL 1</Name>
+      <Connection Name="localhost_programador02_Connection" ProviderKey="MSSqlServer">
+        <Parameters>
+          <Parameter Name="server" Value="192.168.22.146" />
+          <Parameter Name="database" Value="programador02" />
+          <Parameter Name="useIntegratedSecurity" Value="False" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+        </Parameters>
+      </Connection>
+      <Query Type="StoredProcQuery" Name="db_accessadmin_sp_MostrarDetalleRentasConTotal">
+        <ProcName>db_accessadmin.sp_MostrarDetalleRentasConTotal</ProcName>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="Origen de datos SQL 1">
+          <View Name="db_accessadmin_sp_MostrarDetalleRentasConTotal">
+            <Field Name="id_renta" Type="Int32" />
+            <Field Name="id_titulo" Type="Int32" />
+            <Field Name="nombre_titulo" Type="String" />
+            <Field Name="director" Type="String" />
+            <Field Name="precio" Type="Decimal" />
+            <Field Name="fecha_alquilado" Type="DateTime" />
+            <Field Name="fecha_devolucion" Type="DateTime" />
+            <Field Name="id_cliente" Type="Int32" />
+            <Field Name="recargo" Type="Decimal" />
+            <Field Name="estatus" Type="Boolean" />
+            <Field Name="total_generado" Type="Decimal" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="Gráfico 1" DataSource="dashboardSqlDataSource1" DataMember="db_accessadmin_sp_MostrarDetalleRentasConTotal">
+      <InteractivityOptions IsDrillDownEnabled="true" />
+      <DataItems>
+        <Dimension DataMember="nombre_titulo" DefaultId="DataItem0" />
+        <Measure DataMember="total_generado" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem0" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Panel 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem1" />
+              <PointLabelOptions Visible="true" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Grid ComponentName="gridDashboardItem1" Name="Rejilla 1" DataSource="dashboardSqlDataSource1" DataMember="db_accessadmin_sp_MostrarDetalleRentasConTotal">
+      <DataItems>
+        <Dimension DataMember="nombre_titulo" DefaultId="DataItem0" />
+        <Dimension DataMember="director" DefaultId="DataItem1" />
+        <Dimension DataMember="estatus" DefaultId="DataItem2" />
+        <Measure DataMember="precio" DefaultId="DataItem3" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem2" />
+        </GridDimensionColumn>
+        <GridMeasureColumn>
+          <Measure DefaultId="DataItem3" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+    <ListBox ComponentName="listBoxDashboardItem1" Name="List Box 1" DataSource="dashboardSqlDataSource1" DataMember="db_accessadmin_sp_MostrarDetalleRentasConTotal">
+      <DataItems>
+        <Dimension DataMember="nombre_titulo" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ListBox>
+    <Pie ComponentName="pieDashboardItem1" Name="Tartas 1" DataSource="dashboardSqlDataSource1" DataMember="db_accessadmin_sp_MostrarDetalleRentasConTotal">
+      <DataItems>
+        <Measure DataMember="total_generado" DefaultId="DataItem0" />
+        <Dimension DataMember="precio" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutItem DashboardItem="chartDashboardItem1" Weight="51.254237288135592" />
+      <LayoutGroup Orientation="Vertical" Weight="48.745762711864408">
+        <LayoutItem DashboardItem="listBoxDashboardItem1" Weight="25.185185185185187" />
+        <LayoutItem DashboardItem="pieDashboardItem1" Weight="49.25925925925926" />
+        <LayoutItem DashboardItem="gridDashboardItem1" Weight="25.555555555555557" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

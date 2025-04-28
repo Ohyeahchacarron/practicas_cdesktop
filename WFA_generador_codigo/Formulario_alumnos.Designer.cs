@@ -32,6 +32,7 @@
             this.tabla_alumnos = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.boton_eliminar = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.boton_guardar = new DevExpress.XtraEditors.SimpleButton();
@@ -52,7 +53,6 @@
             this.emptySpaceItem10 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem11 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem13 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.boton_eliminar = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.tabla_alumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -94,6 +94,7 @@
             this.gridView1.GridControl = this.tabla_alumnos;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.CustomDrawCell += new DevExpress.XtraGrid.Views.Base.RowCellCustomDrawEventHandler(this.gridView1_CustomDrawCell);
             this.gridView1.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gridView1_CellValueChanged);
             // 
             // layoutControl1
@@ -110,6 +111,23 @@
             this.layoutControl1.Size = new System.Drawing.Size(679, 529);
             this.layoutControl1.TabIndex = 2;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // boton_eliminar
+            // 
+            this.boton_eliminar.Appearance.BackColor = System.Drawing.Color.DarkRed;
+            this.boton_eliminar.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boton_eliminar.Appearance.ForeColor = System.Drawing.Color.White;
+            this.boton_eliminar.Appearance.Options.UseBackColor = true;
+            this.boton_eliminar.Appearance.Options.UseFont = true;
+            this.boton_eliminar.Appearance.Options.UseForeColor = true;
+            this.boton_eliminar.Location = new System.Drawing.Point(388, 482);
+            this.boton_eliminar.MaximumSize = new System.Drawing.Size(119, 25);
+            this.boton_eliminar.Name = "boton_eliminar";
+            this.boton_eliminar.Size = new System.Drawing.Size(103, 23);
+            this.boton_eliminar.StyleController = this.layoutControl1;
+            this.boton_eliminar.TabIndex = 7;
+            this.boton_eliminar.Text = "Eliminar";
+            this.boton_eliminar.Click += new System.EventHandler(this.boton_eliminar_Click);
             // 
             // labelControl2
             // 
@@ -144,11 +162,11 @@
             this.boton_guardar.Appearance.Options.UseBackColor = true;
             this.boton_guardar.Appearance.Options.UseFont = true;
             this.boton_guardar.Appearance.Options.UseForeColor = true;
-            this.boton_guardar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.boton_guardar.Location = new System.Drawing.Point(512, 482);
             this.boton_guardar.MaximumSize = new System.Drawing.Size(115, 0);
             this.boton_guardar.Name = "boton_guardar";
-            this.boton_guardar.Size = new System.Drawing.Size(108, 21);
+            this.boton_guardar.Size = new System.Drawing.Size(108, 23);
+            this.boton_guardar.StyleController = this.layoutControl1;
             this.boton_guardar.TabIndex = 2;
             this.boton_guardar.Text = "Guardar";
             this.boton_guardar.Click += new System.EventHandler(this.boton_guardar_Click_1);
@@ -333,23 +351,6 @@
             this.emptySpaceItem13.Size = new System.Drawing.Size(17, 27);
             this.emptySpaceItem13.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem13.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // boton_eliminar
-            // 
-            this.boton_eliminar.Appearance.BackColor = System.Drawing.Color.DarkRed;
-            this.boton_eliminar.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boton_eliminar.Appearance.ForeColor = System.Drawing.Color.White;
-            this.boton_eliminar.Appearance.Options.UseBackColor = true;
-            this.boton_eliminar.Appearance.Options.UseFont = true;
-            this.boton_eliminar.Appearance.Options.UseForeColor = true;
-            this.boton_eliminar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Flat;
-            this.boton_eliminar.Location = new System.Drawing.Point(388, 482);
-            this.boton_eliminar.MaximumSize = new System.Drawing.Size(119, 25);
-            this.boton_eliminar.Name = "boton_eliminar";
-            this.boton_eliminar.Size = new System.Drawing.Size(103, 23);
-            this.boton_eliminar.TabIndex = 7;
-            this.boton_eliminar.Text = "Eliminar";
-            this.boton_eliminar.Click += new System.EventHandler(this.boton_eliminar_Click);
             // 
             // layoutControlItem2
             // 
