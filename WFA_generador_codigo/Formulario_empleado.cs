@@ -47,6 +47,7 @@ namespace WFA_generador_codigo
             if (empleados_activos.Columns["foto"] != null) empleados_activos.Columns["foto"].Visible = false;
 
             empleados_activos.BestFitColumns();
+           
         }
 
         private void GridView1_RowClick(object sender, RowClickEventArgs e)

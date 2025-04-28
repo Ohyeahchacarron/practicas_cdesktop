@@ -241,3 +241,5 @@ C:\Users\PROGRAMADOR02\source\repos\WFA_generador_codigo\WFA_generador_codigo\ob
 C:\Users\PROGRAMADOR02\source\repos\WFA_generador_codigo\WFA_generador_codigo\obj\Debug\WFA_generador_codigo.exe
 C:\Users\PROGRAMADOR02\source\repos\WFA_generador_codigo\WFA_generador_codigo\obj\Debug\WFA_generador_codigo.pdb
 C:\Users\PROGRAMADOR02\source\repos\WFA_generador_codigo\WFA_generador_codigo\obj\Debug\WFA_generador_codigo.csprojResolveAssemblyReference.cache
+C:\Users\PROGRAMADOR02\source\repos\WFA_generador_codigo\WFA_generador_codigo\obj\Debug\WFA_generador_codigo.Formulario_arrastre.resources
+C:\Users\PROGRAMADOR02\source\repos\WFA_generador_codigo\WFA_generador_codigo\obj\Debug\WFA_generador_codigo.Formulario_arbol.resources

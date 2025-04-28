@@ -44,6 +44,8 @@
             this.simpleButton12 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton13 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton14 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton15 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton16 = new DevExpress.XtraEditors.SimpleButton();
             this.SuspendLayout();
             // 
             // simpleButton1
@@ -235,15 +237,41 @@
             this.simpleButton14.Text = "Empleados";
             this.simpleButton14.Click += new System.EventHandler(this.simpleButton14_Click);
             // 
+            // simpleButton15
+            // 
+            this.simpleButton15.Appearance.BackColor = System.Drawing.Color.Tan;
+            this.simpleButton15.Appearance.Options.UseBackColor = true;
+            this.simpleButton15.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.simpleButton15.Location = new System.Drawing.Point(88, 352);
+            this.simpleButton15.Name = "simpleButton15";
+            this.simpleButton15.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton15.TabIndex = 15;
+            this.simpleButton15.Text = "Registros";
+            this.simpleButton15.Click += new System.EventHandler(this.simpleButton15_Click);
+            // 
+            // simpleButton16
+            // 
+            this.simpleButton16.Appearance.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.simpleButton16.Appearance.Options.UseBackColor = true;
+            this.simpleButton16.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.simpleButton16.Location = new System.Drawing.Point(215, 352);
+            this.simpleButton16.Name = "simpleButton16";
+            this.simpleButton16.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton16.TabIndex = 16;
+            this.simpleButton16.Text = "Árbol";
+            this.simpleButton16.Click += new System.EventHandler(this.simpleButton16_Click);
+            // 
             // Menu
             // 
             this.Appearance.BackColor = System.Drawing.Color.White;
-            this.Appearance.BorderColor = System.Drawing.Color.Yellow;
+            this.Appearance.BorderColor = System.Drawing.Color.Transparent;
             this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseBorderColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 346);
+            this.ClientSize = new System.Drawing.Size(382, 401);
+            this.Controls.Add(this.simpleButton16);
+            this.Controls.Add(this.simpleButton15);
             this.Controls.Add(this.simpleButton14);
             this.Controls.Add(this.simpleButton13);
             this.Controls.Add(this.simpleButton12);
@@ -285,5 +313,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton12;
         private DevExpress.XtraEditors.SimpleButton simpleButton13;
         private DevExpress.XtraEditors.SimpleButton simpleButton14;
+        private DevExpress.XtraEditors.SimpleButton simpleButton15;
+        private DevExpress.XtraEditors.SimpleButton simpleButton16;
     }
 }

@@ -70,6 +70,7 @@
             // 
             // tabla_empleados
             // 
+            this.tabla_empleados.AllowDrop = true;
             this.tabla_empleados.Location = new System.Drawing.Point(12, 95);
             this.tabla_empleados.MainView = this.empleados_activos;
             this.tabla_empleados.Name = "tabla_empleados";
@@ -82,10 +83,12 @@
             // 
             this.empleados_activos.Appearance.EvenRow.BackColor = System.Drawing.Color.White;
             this.empleados_activos.Appearance.EvenRow.Options.UseBackColor = true;
-            this.empleados_activos.Appearance.HeaderPanel.BackColor = System.Drawing.Color.OrangeRed;
+            this.empleados_activos.Appearance.HeaderPanel.BackColor = System.Drawing.Color.Black;
             this.empleados_activos.Appearance.HeaderPanel.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empleados_activos.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.White;
             this.empleados_activos.Appearance.HeaderPanel.Options.UseBackColor = true;
             this.empleados_activos.Appearance.HeaderPanel.Options.UseFont = true;
+            this.empleados_activos.Appearance.HeaderPanel.Options.UseForeColor = true;
             this.empleados_activos.Appearance.OddRow.BackColor = System.Drawing.Color.Silver;
             this.empleados_activos.Appearance.OddRow.Options.UseBackColor = true;
             this.empleados_activos.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -105,7 +108,7 @@
             // 
             // empleado
             // 
-            this.empleado.AppearanceHeader.BackColor = System.Drawing.Color.OrangeRed;
+            this.empleado.AppearanceHeader.BackColor = System.Drawing.Color.Black;
             this.empleado.AppearanceHeader.Options.UseBackColor = true;
             this.empleado.Caption = "Empleado";
             this.empleado.FieldName = "empleado";
@@ -213,7 +216,7 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.OrangeRed;
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.White;
             this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Appearance.Options.UseForeColor = true;
             this.labelControl1.Location = new System.Drawing.Point(21, 16);
@@ -226,7 +229,7 @@
             // 
             this.boton_nuevo.Appearance.BackColor = System.Drawing.Color.Black;
             this.boton_nuevo.Appearance.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.boton_nuevo.Appearance.ForeColor = System.Drawing.Color.OrangeRed;
+            this.boton_nuevo.Appearance.ForeColor = System.Drawing.Color.White;
             this.boton_nuevo.Appearance.Options.UseBackColor = true;
             this.boton_nuevo.Appearance.Options.UseFont = true;
             this.boton_nuevo.Appearance.Options.UseForeColor = true;

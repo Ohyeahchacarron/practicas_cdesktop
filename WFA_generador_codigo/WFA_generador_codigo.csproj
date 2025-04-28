@@ -133,6 +133,18 @@
     <Compile Include="Formulario_alumnos.Designer.cs">
       <DependentUpon>Formulario_alumnos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formulario_arbol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario_arbol.Designer.cs">
+      <DependentUpon>Formulario_arbol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formulario_arrastre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario_arrastre.Designer.cs">
+      <DependentUpon>Formulario_arrastre.cs</DependentUpon>
+    </Compile>
     <Compile Include="formulario_colores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +247,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario_alumnos.resx">
       <DependentUpon>Formulario_alumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario_arbol.resx">
+      <DependentUpon>Formulario_arbol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario_arrastre.resx">
+      <DependentUpon>Formulario_arrastre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formulario_colores.resx">
       <DependentUpon>formulario_colores.cs</DependentUpon>

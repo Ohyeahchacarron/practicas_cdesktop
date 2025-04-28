@@ -112,5 +112,17 @@ namespace WFA_generador_codigo
             Formulario_empleado form_emp = new Formulario_empleado();
             form_emp.Show();
         }
+
+        private void simpleButton15_Click(object sender, EventArgs e)
+        {
+            Formulario_arrastre form_arra = new Formulario_arrastre();
+            form_arra.Show();
+        }
+
+        private void simpleButton16_Click(object sender, EventArgs e)
+        {
+            Formulario_arbol form_arbol = new Formulario_arbol();
+            form_arbol.Show();
+        }
     }
 }
